@@ -5,6 +5,7 @@ export default defineConfig({
   description: '个人技术积累与问题解决方案记录',
   lang: 'zh-CN',
   cleanUrls: true,
+  base: '/blog/',
 
   markdown: {
     lineNumbers: true,
@@ -33,7 +34,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' },
+      { icon: 'github', link: 'https://github.com/Mrwr520/blog' },
     ],
 
     footer: {
