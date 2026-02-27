@@ -1,0 +1,234 @@
+/* ===== 主题色覆盖 ===== */
+:root {
+  --vp-c-brand-1: #5b8def;
+  --vp-c-brand-2: #4a7de0;
+  --vp-c-brand-3: #3a6dd1;
+  --vp-c-brand-soft: rgba(91, 141, 239, 0.14);
+
+  --blog-card-bg: #ffffff;
+  --blog-card-border: #e8e8e8;
+  --blog-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --blog-card-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --blog-sidebar-bg: #f9fafb;
+  --blog-tag-bg: #f0f4ff;
+  --blog-tag-color: #5b8def;
+  --blog-text-secondary: #666;
+  --blog-divider: #eee;
+}
+
+.dark {
+  --blog-card-bg: #1e1e20;
+  --blog-card-border: #2e2e32;
+  --blog-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --blog-card-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --blog-sidebar-bg: #1a1a1c;
+  --blog-tag-bg: rgba(91, 141, 239, 0.15);
+  --blog-tag-color: #7aa2f7;
+  --blog-text-secondary: #999;
+  --blog-divider: #2e2e32;
+}
+
+/* ===== 博客首页布局 ===== */
+.blog-home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .blog-home {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 24px;
+  }
+}
+
+/* ===== 文章卡片 ===== */
+.article-card {
+  background: var(--blog-card-bg);
+  border: 1px solid var(--blog-card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--blog-card-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.article-card:hover {
+  box-shadow: var(--blog-card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+.article-card .card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.article-card .card-title a {
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+}
+
+.article-card .card-title a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.article-card .card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--blog-text-secondary);
+  margin-bottom: 8px;
+}
+
+.article-card .card-excerpt {
+  font-size: 0.92rem;
+  color: var(--blog-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== 标签 ===== */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  background: var(--blog-tag-bg);
+  color: var(--blog-tag-color);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.tag:hover {
+  opacity: 0.8;
+}
+
+/* ===== 侧边栏 ===== */
+.blog-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+
+.sidebar-section {
+  background: var(--blog-sidebar-bg);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.sidebar-section h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--blog-divider);
+}
+
+/* ===== 分类列表 ===== */
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.category-list li a {
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.category-list li a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.category-list .count {
+  font-size: 0.8rem;
+  color: var(--blog-text-secondary);
+  background: var(--blog-tag-bg);
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+
+/* ===== 标签云 ===== */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ===== 分页 ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--blog-divider);
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border: 1px solid var(--blog-card-border);
+  border-radius: 8px;
+  background: var(--blog-card-bg);
+  color: var(--vp-c-text-1);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination .page-info {
+  font-size: 0.85rem;
+  color: var(--blog-text-secondary);
+}
+
+/* ===== 标签页/分类页 ===== */
+.tags-page,
+.categories-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.tags-page h1,
+.categories-page h1 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.category-group {
+  margin-bottom: 32px;
+}
+
+.category-group h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--vp-c-brand-soft);
+}

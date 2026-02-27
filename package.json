@@ -1,0 +1,20 @@
+{
+  "name": "personal-tech-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^4.5.3",
+    "typescript": "^5.7.3",
+    "vitepress": "^1.6.3",
+    "vitest": "^4.0.18",
+    "vue": "^3.5.13"
+  }
+}
