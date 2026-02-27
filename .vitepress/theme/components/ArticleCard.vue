@@ -12,12 +12,7 @@ interface Props {
 
 defineProps<Props>()
 
-const categoryLabel: Record<string, string> = {
-  frontend: '前端',
-  backend: '后端',
-  devops: 'DevOps',
-  other: '其他',
-}
+import { getCategoryLabel } from '../config/categories'
 </script>
 
 <template>
@@ -28,7 +23,7 @@ const categoryLabel: Record<string, string> = {
     <div class="card-meta">
       <time>{{ date }}</time>
       <span>·</span>
-      <span>{{ categoryLabel[category] ?? category }}</span>
+      <span>{{ getCategoryLabel(category) }}</span>
     </div>
     <p v-if="excerpt" class="card-excerpt">{{ excerpt }}</p>
     <div v-if="tags.length" style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">

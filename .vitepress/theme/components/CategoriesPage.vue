@@ -2,6 +2,7 @@
 import { computed, ref, onMounted } from 'vue'
 import { data as posts } from '../utils/posts.data.mts'
 import { getAllCategories, filterByCategory } from '../utils/helpers'
+import { getCategoryLabel } from '../config/categories'
 import ArticleList from './ArticleList.vue'
 
 const selectedCategory = ref<string | null>(null)
@@ -9,13 +10,6 @@ const categories = computed(() => getAllCategories(posts))
 const filteredPosts = computed(() =>
   selectedCategory.value ? filterByCategory(posts, selectedCategory.value) : posts,
 )
-
-const categoryLabel: Record<string, string> = {
-  frontend: '前端',
-  backend: '后端',
-  devops: 'DevOps',
-  other: '其他',
-}
 
 onMounted(() => {
   const params = new URLSearchParams(window.location.search)
@@ -65,7 +59,7 @@ function selectCategory(cat: string | null) {
         }"
         @click="selectCategory(cat)"
       >
-        {{ categoryLabel[cat] ?? cat }} ({{ count }})
+        {{ getCategoryLabel(cat) }} ({{ count }})
       </button>
     </div>
     <ArticleList :posts="filteredPosts" />
